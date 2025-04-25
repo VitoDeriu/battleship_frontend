@@ -1,4 +1,4 @@
-import React, {createContext, useContext, ReactNode, useState} from "react";
+import React, {createContext, ReactNode, useState} from "react";
 
 //On va créer un context pour gérer l'utilisateur dans toute l'application un peu comme une variable de session, mais coté client pour pouvoir y acceder de partout
 

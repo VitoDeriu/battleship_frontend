@@ -9,11 +9,12 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
+  //Attention j'ai désactiver le strictmode pour la connexion au websocket !
+  //<React.StrictMode>
       <AuthProvider>
         <App />
       </AuthProvider>
-  </React.StrictMode>
+  //</React.StrictMode>
 );
 
 reportWebVitals();
