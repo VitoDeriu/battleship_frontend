@@ -22,6 +22,24 @@ class WsGameService {
     // Sur connexion reussie
     this.socket.on("connect", () => {
       console.log('WsGameService - Connecté au WebSocket!')
+      // @ts-ignore
+      this.socket.emit('join-room', { roomId: 'room1'});
+    });
+
+    this.socket.on('player-joined', (data) => {
+      console.log(`WsGameService - roomId : ${data.room} - Joueur rejoint la room`, data.players);
+    })
+
+    this.socket.on('game-ready', (data) => {
+      console.log(`WsGameService - PARTIE PRÊTE ! Joueur qui commence : ${data.startPlayer}`);
+    });
+
+    this.socket.on('player-left', (data) => {
+      console.log(`[${data.roomId}] Un joueur a quitté la room`);
+    });
+
+    this.socket.on('room-error', (data) => {
+      console.error(`${data.message} (Room: ${data.roomId})`);
     });
 
     // Gestion des messages
@@ -40,6 +58,7 @@ class WsGameService {
     this.socket.on("disconnect", (reason) => {
       console.log(`WsGameService - Déconnecté (${reason}).`);
       this.socket = null; // Réinitialiser la connexion
+      return;
     });
   }
 
