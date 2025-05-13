@@ -1,0 +1,26 @@
+.boat{
+  cursor: grab;
+  display: inline-block;
+  background: lightblue;
+  margin: 10px;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+
+  /* Calcul dynamique en fonction de la taille */
+  &.horizontal{
+    width: calc(30px * var(--size));
+    height: 30px;
+  }
+  &.vertical{
+    width: 30px;
+    height: calc(30px * var(--size));
+  }
+
+  &.dragging{
+    display: none;
+  }
+
+  &.placed{
+    display: none;
+  }
+}

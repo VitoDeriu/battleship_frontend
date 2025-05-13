@@ -1,0 +1,29 @@
+.cell {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.empty {
+    background-color: #fafafa;
+  }
+
+  &.ship {
+    background-color: #444;
+  }
+
+  &.hit {
+    background-color: red;
+  }
+
+  &.miss {
+    background-color: lightblue;
+  }
+
+  &.hover {
+    background-color: #b1b1b1;
+  }
+}

@@ -5,7 +5,8 @@ class WsGameService {
   private listeners: ((message: string) => void)[] = []; // Liste des abonnés pour recevoir les messages j'ai pas compris cétait quoi ??
 
   //init de la connexion
-  connect(url: string): void {
+  connect(url: string, username?: string | null): void {
+
     console.log("WsGameService - Tentative de connexion à :", url)
 
     //annule la co si déjà co
@@ -17,6 +18,7 @@ class WsGameService {
     //initialise la connexion avec l'url
     this.socket = io(url, {
       transports: ['websocket'],// Force l'utilisation du WebSocket
+      auth: {username},
     });
 
     // Sur connexion reussie
@@ -72,7 +74,7 @@ class WsGameService {
     }
   }
 
-  // Méthode pour s'abonner à un événement
+  // Méthode pour s'abonner à une route et y réagir (le callback c'est la fonction qui se lance lorsqu'on a cet event)
   onMessage(event: string, callback: (message: any) => void) {
     if (this.socket) {
       this.socket.on(event, callback);

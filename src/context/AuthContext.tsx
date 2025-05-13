@@ -22,6 +22,7 @@ export const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
 //ensuite pour recup le context dans App.tsx faut créer un provider qui va aller récup le context.
 //c'est grace aux hooks qu'on va aller stocker les infos de l'utilisateurs dans le provider
+
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [user, setUser] = useState<string | null>(null) //là on a mis le user a null par défaut dans les parentheses
 

@@ -7,27 +7,3 @@
 .row {
   display: flex;
 }
-
-.cell {
-  width: 30px;
-  height: 30px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  cursor: pointer;
-
-  &.empty {
-    background-color: #fff;
-  }
-
-  &.ship {
-    background-color: #444;
-  }
-
-  &.hit {
-    background-color: red;
-  }
-
-  &.miss {
-    background-color: lightblue;
-  }
-}
